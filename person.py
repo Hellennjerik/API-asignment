@@ -1,7 +1,10 @@
+# person.py
+
 class Person:
-    def __init__(self, name, age):
+    def __init__(self, name, age, gender):
         self.name = name
         self.age = age
+        self.gender = gender
 
-    def display_info(self):
-        print(f"Hello, my name is {self.name}, Age: {self.age}")
+    def get_info(self):
+        return f"Name: {self.name}, Age: {self.age}, Gender: {self.gender}"

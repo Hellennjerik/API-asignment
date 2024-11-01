@@ -1,19 +1,17 @@
+# appointment.py
+
 class Appointment:
-    def __init__(self, appointment_id, description, doctor, patient, date, time):  
+    def __init__(self, appointment_id, patient, doctor, date_time):
         self.appointment_id = appointment_id
-        self.description = description
-        self.doctor = doctor  # Reference to a Doctor object
-        self.patient = patient  # Reference to a Patient object
-        self.date = date
-        self.time = time
+        self.patient = patient
+        self.doctor = doctor
+        self.date_time = date_time
 
-    def display(self):
-        print("Appointment Information:")
-        print(f"Appointment ID: {self.appointment_id}, Description: {self.description}, Doctor: {self.doctor.name}, Patient: {self.patient.name}, Date: {self.date}, Time: {self.time}")  
+    def schedule(self):
+        return f"Appointment scheduled for {self.patient.name} with Dr. {self.doctor.name} on {self.date_time}."
 
-
-
-
+    def cancel(self):
+        return f"Appointment with ID {self.appointment_id} has been canceled."
 
 
 

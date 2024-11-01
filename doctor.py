@@ -1,16 +1,15 @@
-from person import Person  # Import Person class from person module
+# doctor.py
+
+from person import Person
 
 class Doctor(Person):
-    def __init__(self, name, age, gender, specialization, doctor_id):
-        super().__init__(name, age) # call the instructor of Person
-
-        # Attributes specific to the Doctor class
-        self.gender = gender
+    def __init__(self, name, age, gender, doctor_id, specialization):
+        super().__init__(name, age, gender)
+        self.doctor_id = doctor_id
         self.specialization = specialization
-        self.doctor_id = doctor_id  # Unique identifier for the doctors
 
-        def display_info(self):
-            super().display_info()
-            print(f"Gender: {self.gender}, Specialization: {self.specialization}, ID: {self.doctor_id}")
-
+    def diagnose(self, patient):
+        return f"Doctor {self.name} diagnosed patient {patient.name}."
+       
+     
    

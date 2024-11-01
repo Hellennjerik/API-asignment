@@ -1,39 +1,30 @@
-class Doctor:
-    def __init__(self, name, age, gender, specialty, id_number):
-        self.name = name
-        self.age = age
-        self.gender = gender
-        self.specialty = specialty
-        self.id_number = id_number
 
-    def display_info(self):
-        print(f"Name: {self.name}")
-        print(f"Age: {self.age}")
-        print(f"Gender: {self.gender}")
-        print(f"Specialty: {self.specialty}")
-        print(f"ID Number: {self.id_number}")
-
-class Patient:
-    def __init__(self, name, age, id_number):
-        self.name = name
-        self.age = age
-        self.id_number = id_number
-
-    def display_info(self):
-        print(f"Name: {self.name}")
-        print(f"Age: {self.age}")
-        print(f"ID Number: {self.id_number}")
-
-def main():
-    doc1 = Doctor("Dr.Olive", 40, "Female", "Pediatrician", 101 )
-    pat1 = Patient("Hellen", 10, 1)
-
-    #displaying information using inheritance
-    print("Doctor Information:")
-    doc1.display_info() #calling the method from the parent class
-
-    print("\nDisplaying Patient Information:")
-    pat1.display_info() #calling the method from the parent class
+from datetime import datetime
+from .patient import Patient
+from .doctor import Doctor
+from appointments import Appointment
 
 if __name__ == "__main__":
-    main()
+    # Create instances of Patient and Doctor
+    p1 = Patient("Julian", 10, "Male", "1")
+    d1 = Doctor("Dr. Olive", 45, "Female", "101", "Pediatrician")
+
+    # Add medical records for the patient
+    p1.add_medical_record("Allergy to red meat")
+    print("Medical History after adding:", p1.get_medical_history())
+
+    # Update a medical record
+    p1.update_medical_record("Allergy to red meat", "Severe allergy to red meat")
+    print("Medical History after updating:", p1.get_medical_history())
+
+    # Delete a medical record
+    p1.delete_medical_record("Severe allergy to red meat")
+    print("Medical History after deleting:", p1.get_medical_history())
+
+    # Schedule an appointment
+    app1 = Appointment("A001", p1, d1, datetime.now())
+    
+    # Print information
+    print(p1.get_info())
+    print(d1.diagnose(p1))
+    print(app1.schedule())
