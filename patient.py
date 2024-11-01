@@ -1,35 +1,49 @@
-from person import Person  # Import Person class from person module
 
-class Patient(Person):
-    def __init__(self, name, age, patient_id):
-        super().__init__(name, age) 
-        self.patient_id = patient_id # Unique identifier for the patients
+class Patient:
+
+    def __init__(self, name: str, age: int, patient_id: str):
+
+        self.name = name
+
+        self.age = age
+
+        self.patient_id = patient_id
+
         self.medical_history = []
 
-    def display_info(self):
-        print("Patient Information:")   
-        super().display_info()
-        print(f"Name: {self.name}, Age: {self.age}, ID: {self.patient_id}")
 
-    def add_medical_history(self, record):
+
+    def add_medical_record(self, record: str) -> None:
+
         self.medical_history.append(record)
 
-    def update_medical_record(self, old_record, new_record):
-        #update a record in the medical history
-        if old_record in self.medical_history:
-            index = self.medical_history.index(old_record)
-            self.medical_history[index] = new_record
-        else:
-            print("Record not found")
 
-    def delete_medical_record(self, record):
-        #delete a record from the medical history
+
+    def update_medical_record(self, old_record: str, new_record: str) -> None:
+
+        if old_record in self.medical_history:
+
+            self.medical_history[self.medical_history.index(old_record)] = new_record
+
+
+
+    def delete_medical_record(self, record: str) -> None:
+
         if record in self.medical_history:
+
             self.medical_history.remove(record)
-        else:
-            print("Record not found")   
-            
-    def get_medical_history(self):
+
+
+
+    def get_medical_history(self) -> list:
+
         return self.medical_history
+
+
+
+    def get_info(self) -> str:
+
+        return f"Patient Name: {self.name}, Age: {self.age}, ID: {self.patient_id}"
+
     
      
