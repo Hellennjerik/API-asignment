@@ -1,12 +1,12 @@
 
 from datetime import datetime
-from .patient import Patient
-from .doctor import Doctor
+from patient import Patient
+from doctor import Doctor
 from appointments import Appointment
 
 if __name__ == "__main__":
     # Create instances of Patient and Doctor
-    p1 = Patient("Julian", 10, "Male", "1")
+    p1 = Patient("Julian", 10, "1")
     d1 = Doctor("Dr. Olive", 45, "Female", "101", "Pediatrician")
 
     # Add medical records for the patient
