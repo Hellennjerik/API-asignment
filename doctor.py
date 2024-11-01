@@ -4,7 +4,8 @@ from person import Person
 
 class Doctor(Person):
     def __init__(self, name, age, gender, doctor_id, specialization):
-        super().__init__(name, age, gender)
+        super().__init__(name, age,)
+        self.gender = gender
         self.doctor_id = doctor_id
         self.specialization = specialization
 
